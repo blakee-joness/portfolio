@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ThemeProvider } from "@mui/material/styles";
+import { CssBaseline, useMediaQuery } from "@mui/material";
+import { Suspense, createContext, useState } from "react";
+import theme from "./Theme/themes";
+import Homepage from "./Pages/Home";
+import { Grid } from "@mui/material";
+import Header from "./Components/Header";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const ThemeModeContext = createContext({
+  isDarkMode: true,
+  toggleTheme: () => {},
+});
 
+function App(): JSX.Element {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [isDarkMode, setIsDarkMode] = useState(prefersDarkMode);
+
+  const toggleTheme = (): void => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Suspense>
+      <ThemeModeContext.Provider value={{ isDarkMode, toggleTheme }}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Grid container style={{ height: "100vh" }}>
+            <Grid item xs={12}>
+              <Header />
+            </Grid>
+            <Grid item xs={2} sm={2} md={2} />
+            <Grid item xs={8} sm={8} md={8}>
+              <Homepage />
+            </Grid>
+            <Grid item xs={2} sm={2} md={2} />
+          </Grid>
+        </ThemeProvider>
+      </ThemeModeContext.Provider>
+    </Suspense>
+  );
 }
 
-export default App
+export default App;
