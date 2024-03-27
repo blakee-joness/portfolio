@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start Debugging",
+            "type": "chrome",
+            "request": "launch",
+            "skipFiles": ["${workspaceFolder}/portfolio/node_modules/**/*.js"],
+            "preLaunchTask": "npm: dev",
+            "postDebugTask": "stop all",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/portfolio"
+          },
+    ],
+  }
