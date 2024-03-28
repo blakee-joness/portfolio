@@ -3,7 +3,6 @@ import { CssBaseline, useMediaQuery } from "@mui/material";
 import { Suspense, createContext, useState } from "react";
 import theme from "./Theme/themes";
 import Homepage from "./Pages/Content";
-import { Grid } from "@mui/material";
 import Header from "./Components/Header";
 
 export const ThemeModeContext = createContext({
