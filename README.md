@@ -8,6 +8,8 @@ Feel free to explore and check out the different sections. I'm continuously work
 
 Thank you for visiting! 😊
 
+### [🚀 Visit the Live Demo 🚀](https://blakee-joness.github.io/portfolio/)
+
 ## Technology Stack
 
 The portfolio is built using the following technologies:
