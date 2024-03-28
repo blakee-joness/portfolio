@@ -1,12 +1,16 @@
-import { AppBar, Toolbar, Typography, Button, Avatar } from "@mui/material";
+import { AppBar, Avatar, Button, Toolbar } from "@mui/material";
 
 export default function Header() {
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          J
-        </Typography>
+        <div style={{ flexGrow: 1 }}>
+          <Avatar
+            alt="Logo"
+            src="./src/assets/monogram_j-transparent.png"
+            sx={{ width: 56, height: 56, marginTop: 2, marginBottom: 2 }}
+          />
+        </div>
         <Button color="inherit">Home</Button>
         <Button color="inherit">About</Button>
         <Button color="inherit">Projects</Button>
