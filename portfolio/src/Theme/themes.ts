@@ -4,13 +4,13 @@ const theme = createTheme({
   palette: {
     mode: "dark", // Set the mode to 'dark'
     primary: {
-      main: "#7E7F9A",
+      main: "#c8a356",
     },
     secondary: {
-      main: "#4B244A",
+      main: "#341c62",
     },
     background: {
-      default: "#080708", // Dark background color
+      default: "#1a0d29", // Dark background color
     },
     text: {
       primary: "#efefef", // Light text color for contrast
@@ -30,10 +30,10 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: "#4B244A",
+          backgroundColor: "#341c62",
           color: "#efefef",
           "&:hover": {
-            backgroundColor: "#8E8358",
+            backgroundColor: "#c8a356",
           },
         },
       },
