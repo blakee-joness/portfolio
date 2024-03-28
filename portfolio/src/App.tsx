@@ -2,7 +2,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline, useMediaQuery } from "@mui/material";
 import { Suspense, createContext, useState } from "react";
 import theme from "./Theme/themes";
-import Homepage from "./Pages/Home";
+import Homepage from "./Pages/Content";
 import { Grid } from "@mui/material";
 import Header from "./Components/Header";
 
@@ -23,16 +23,8 @@ function App(): JSX.Element {
       <ThemeModeContext.Provider value={{ isDarkMode, toggleTheme }}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Grid container style={{ height: "100vh" }}>
-            <Grid item xs={12}>
-              <Header />
-            </Grid>
-            <Grid item xs={2} sm={2} md={2} />
-            <Grid item xs={8} sm={8} md={8}>
-              <Homepage />
-            </Grid>
-            <Grid item xs={2} sm={2} md={2} />
-          </Grid>
+          <Header />
+          <Homepage />
         </ThemeProvider>
       </ThemeModeContext.Provider>
     </Suspense>
