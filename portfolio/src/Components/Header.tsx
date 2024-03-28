@@ -7,7 +7,7 @@ export default function Header() {
         <div style={{ flexGrow: 1 }}>
           <Avatar
             alt="Logo"
-            src="./src/assets/monogram_j-transparent.png"
+            src="monogram_j-transparent.png"
             sx={{ width: 56, height: 56, marginTop: 2, marginBottom: 2 }}
           />
         </div>
