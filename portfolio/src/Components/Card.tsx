@@ -1,9 +1,9 @@
-import { useTheme } from "@emotion/react";
 import {
   Card as MUICard,
   CardContent,
   CardHeader,
   Typography,
+  useTheme,
 } from "@mui/material";
 
 export default function Card() {
