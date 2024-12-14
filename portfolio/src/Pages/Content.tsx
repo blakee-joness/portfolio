@@ -6,18 +6,82 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import TimeSince from "../Components/TimeSince";
+
+interface Experience {
+  title: string;
+  date?: Date;
+}
+
+interface ExpSkillsType {
+  type: "Experience" | "Skills";
+  items: Experience[];
+}
 
 export default function Content() {
   const theme = useTheme();
+
+  const experienceObj: ExpSkillsType[] = [
+    {
+      type: "Experience",
+      items: [
+        {
+          title: "Enterprise Software Development",
+          date: new Date("2022-01-01"),
+        },
+        {
+          title: "Tier 1 Provider Network Provisioning",
+          date: new Date("2013-12-01"),
+        },
+        {
+          title: "Python",
+          date: new Date("2016-07-01"),
+        },
+        {
+          title: "Django",
+          date: new Date("2017-07-01"),
+        },
+        {
+          title: "React w/ TypeScript",
+          date: new Date("2023-01-03"),
+        },
+      ],
+    },
+    {
+      type: "Skills",
+      items: [
+        {
+          title: "Team Leadership",
+          date: new Date("2019-01-01"),
+        },
+        {
+          title: "Process Automation",
+          date: new Date("2016-01-01"),
+        },
+        {
+          title: "Jenkins CI/CD",
+          date: new Date("2023-10-01"),
+        },
+        {
+          title: "Docker",
+          date: new Date("2023-07-01"),
+        },
+        {
+          title: "Git",
+          date: new Date("2017-06-01"),
+        },
+      ],
+    },
+  ];
+
   return (
     <>
-      <Grid container>
-        <Grid item xs={6} px={6}>
+      <Grid container direction={"row"} xs={12}>
+        <Grid item xs={12} md={6} px={6} py={{ xs: 5 }}>
           <Card
             sx={{
               backgroundColor: "secondary.main",
               color: "white",
-              height: "100%",
               border: `2px ridge ${theme.palette.primary.main}`,
             }}
           >
@@ -34,29 +98,23 @@ export default function Content() {
               }}
             />
             <CardContent>
-              <Typography variant="body1">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea
-                minus eveniet repellat vel beatae accusamus explicabo quaerat
-                asperiores debitis totam obcaecati consectetur eaque doloribus
-                adipisci neque iure distinctio, tenetur iusto? Lorem ipsum,
-                dolor sit amet consectetur adipisicing elit. Ea minus eveniet
-                repellat vel beatae accusamus explicabo quaerat asperiores
-                debitis totam obcaecati consectetur eaque doloribus adipisci
-                neque iure distinctio, tenetur iusto? Lorem ipsum, dolor sit
-                amet consectetur adipisicing elit. Ea minus eveniet repellat vel
-                beatae accusamus explicabo quaerat asperiores debitis totam
-                obcaecati consectetur eaque doloribus adipisci neque iure
-                distinctio, tenetur iusto?
+              <Typography variant="h5" align="justify">
+                I am a seasoned telecom and networking technician with a decade
+                of hands-on experience in the industry. My passion for solving
+                complex human problems through programming has led me to
+                specialize in the niche fields of network management, process
+                automation, and software development. Over the years, I have
+                honed my skills to seamlessly integrate technology solutions
+                that enhance operational efficiency and drive innovation.
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={6} px={6}>
+        <Grid item xs={12} md={5} ml={0}>
           <Card
             sx={{
               backgroundColor: "secondary.main",
               color: "white",
-              height: "100%",
               border: `2px ridge ${theme.palette.primary.main}`,
             }}
           >
@@ -73,20 +131,27 @@ export default function Content() {
               }}
             />
             <CardContent>
-              <Typography variant="body1">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea
-                minus eveniet repellat vel beatae accusamus explicabo quaerat
-                asperiores debitis totam obcaecati consectetur eaque doloribus
-                adipisci neque iure distinctio, tenetur iusto? Lorem ipsum,
-                dolor sit amet consectetur adipisicing elit. Ea minus eveniet
-                repellat vel beatae accusamus explicabo quaerat asperiores
-                debitis totam obcaecati consectetur eaque doloribus adipisci
-                neque iure distinctio, tenetur iusto? Lorem ipsum, dolor sit
-                amet consectetur adipisicing elit. Ea minus eveniet repellat vel
-                beatae accusamus explicabo quaerat asperiores debitis totam
-                obcaecati consectetur eaque doloribus adipisci neque iure
-                distinctio, tenetur iusto?
-              </Typography>
+              <Grid container direction={"row"} spacing={0}>
+                {experienceObj.map((exp) => (
+                  <Grid item>
+                    <Typography variant="h5" component="div">
+                      {exp.type}
+                    </Typography>
+                    <ul>
+                      <li>
+                        {exp.items.map((item) => (
+                          <li>
+                            {item.title}:{" "}
+                            <strong>
+                              {item.date && <TimeSince date={item.date} />}
+                            </strong>
+                          </li>
+                        ))}
+                      </li>
+                    </ul>
+                  </Grid>
+                ))}
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
