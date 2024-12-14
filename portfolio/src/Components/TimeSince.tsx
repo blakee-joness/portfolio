@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Typography from "@mui/material/Typography";
 
 interface TimeSinceProps {
   date: Date;
